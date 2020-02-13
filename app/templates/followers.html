@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html" charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<title>YourSound</title> 
+	</head>
+	
+	<body>
+	<!-- Header begin -->
+    <div class="navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">YourSound</a>
+				<span>
+					<form class="search">
+						<input type="text" placeholder="search..."></input>
+						<button type="submit"><img src="img/search.png"></img></button>
+					</form>
+					<span class="Sign">
+						<button class="btn btn-info" data-toggle="modal" data-target="#SignInModal">Sign In</button>						
+					</span>
+					<span class="Sign">
+						<button class="btn btn-info" data-toggle="modal" data-target="#SignUpModal">Sign Up</button>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<!-- Header end -->
+	
+	
+	<!-- Modal begin -->
+	
+	<div id="SignInModal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Sign In</h4>
+					<button class="close" data-dismiss="modal">x</button>
+				</div>
+				<div class="modal-body">
+					<form>
+					<input class="modalData" type="text" placeholder="User name"></input>
+					<input class="modalData" type="text" placeholder="Password"></input>
+					<button id="signIn" type="submit">Sign In</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="SignUpModal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Sign Up</h4>
+					<button class="close" data-dismiss="modal">x</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input class="modalData" type="text" placeholder="User name"></input>
+						<input class="modalData" type="text" placeholder="E-mail"></input>
+						<input class="modalData" type="password" placeholder="Password"></input>
+						<input class="modalData" type="text" placeholder="Repeat password"></input>
+						<button id="signUp" type="submit">Sign Up</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal end -->
+	
+	<!-- body begin -->
+	<div style="overflow: auto; height: calc(100vh);" class="container">
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col">
+				<h5>Followers 5</h5>
+			</div>
+		</div>
+		<hr>
+		<div class="row follower">
+			<div class="col-1">
+				<img src="img/user.png" class="follow"></img>
+			</div>
+			<div class="col align-self-center">
+				<a href="#">User name</a>
+			</div>			
+		</div>
+		<hr>
+		<div class="row follower">
+			<div class="col-1">
+				<img src="img/user.png" class="follow"></img>
+			</div>
+			<div class="col align-self-center">
+				<a href="#">User name</a>
+			</div>			
+		</div>
+		<hr>
+		<div class="row follower">
+			<div class="col-1">
+				<img src="img/user.png" class="follow"></img>
+			</div>
+			<div class="col align-self-center">
+				<a href="#">User name</a>
+			</div>			
+		</div>
+		<hr>
+		<div class="row follower">
+			<div class="col-1">
+				<img src="img/user.png" class="follow"></img>
+			</div>
+			<div class="col align-self-center">
+				<a href="#">User name</a>
+			</div>			
+		</div>
+		<hr>
+		<div class="row follower">
+			<div class="col-1">
+				<img src="img/user.png" class="follow"></img>
+			</div>
+			<div class="col align-self-center">
+				<a href="#">User name</a>
+			</div>			
+		</div>
+		<hr>		
+	</div>
+	<!-- body end -->
+	
+	
+	<!-- Footer start -->
+	
+	<div class="navbar-fixed-bottom">
+		<div class="container">
+			<div class="currentTrack">
+				<div class="row">
+					<div class="col-1 align-self-center"><img class="trackIcon" src="img/song.png"></img></div>
+						<div class="col-1 align-self-center">
+							<span class="controlButtons">
+								<img src="img/playbutton.png"></img>
+							</span>
+							<span class="timePassSpan">
+								<span class="timePass">0:33</span>
+							</span>
+						</div>
+					<div class="col-6 align-self-center">
+						<div class="progressBar">
+							<div style="width:35%" class="progressBarPassed">
+								<!-- progress bar -->
+							</div>
+						</div>
+					</div>
+					<div class="col-1 align-self-center">
+						<span>1:33</span>
+					</div>
+					<div class="col-3 align-self-center">
+						<div>
+							<a href="#">Author</a>
+						</div>
+						<div>
+							<a href="#">Track name</a>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<!-- Footer end -->
+	</body>
+</html>

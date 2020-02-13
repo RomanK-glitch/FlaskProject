@@ -1,0 +1,169 @@
+	{% extends 'base.html' %}
+	
+	{% block title %}
+		Main
+	{% endblock %}
+	
+	<!-- Tracks begin -->
+	
+	{% block content %}
+			
+	
+	<div style="overflow: auto; height: calc(100vh);" class="container" >
+		<div class="MostLiked">
+			<br>
+			<br>
+			<br>
+			<h5>Search results for "{{ request.args.get('q', '') }}"</h5>
+			
+			<hr>
+			
+			<h6>Tracks</h6>
+			
+			{% if tracks %}
+			{% for track in tracks %}
+			
+			<div class="post">
+				<div class="track">
+					<div class="row">
+						<div class="col-1"><img class="trackIcon" src="{{ url_for('static', filename=track.picture) }}"></img></div>
+							<div class="col-1 align-self-center">
+								<span class="controlButtons">
+									<audio src="{{ url_for('static', filename=track.path) }}" preload="metadata" type="audio/mpeg"></audio>
+									<img class="Play" src="{{ url_for('static', filename='img/playbutton.png') }}"></img>
+									<img style="display:none;" class="Pause" src="{{ url_for('static', filename='img/pause-button.png') }}"></img>
+								</span>
+								<span class="timePassSpan">
+									<span class="timePass"><span class="minutesPass">0</span><span>:</span><span class="secondsPass">0</span></span>
+								</span>
+							</div>						
+						<div class="col-9 align-self-center">
+							<div class="progressBar">
+								<div style="width:0%" class="progressBarPassed">
+									<!-- progress bar -->
+								</div>
+							</div>
+						</div>
+						<div class="col-1 align-self-center">
+							<span class="duration"><span class="minutes">{{  track.duration }}</span><span>:</span><span class="seconds">{{  track.listenings }}</span></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1">
+							<span><img class="likeButton" src="{{ url_for('static', filename='img/unlike.png') }}"></img><img style="display: none;" class="unlike" src="{{ url_for('static', filename='img/like.png') }}"></img></span>
+							<span class="likeCount">12</span>
+						</div>
+						<div class="col-10">					
+							<span>	
+								{% for user in users %}
+									{% if user.id==track.user_id %}
+										<a class="author" href="{{ url_for('users.profile', slug=user.slug) }}">{{ user.name }}</a>
+									{% endif %}
+								{% endfor %}
+							</span>
+							<span>
+								<h6 style="display:inline;"> - </h6>
+							</span>
+							<span>
+								<a class="trackName" href="#">{{ track.track_name }}</a>
+							</span>
+						</div>
+						<div class="col-1 align-self-center">
+						</div>
+					</div>
+				</div>
+				<div style="display: none;" class="comments">
+					<div class="comment">
+						<div class="row">
+							<div class="col-1"><img src="{{ url_for('static', filename='img/user.png') }}"></img></div>
+							<div class="col align-self-center"><a href="#">UserName</a></div>
+						</div>
+						<div class="row">
+							<div class="col-2">
+							</div>
+							<div class="col">
+								<p>commentcommentcommentcommentcommentcommentcommentcomment</p>
+							</div>
+						</div>
+					<hr>
+					</div>
+					<div class="comment">
+						<div class="row">
+							<div class="col-1"><img src="{{ url_for('static', filename='img/user.png') }}"></img></div>
+							<div class="col align-self-center"><a href="#">UserName</a></div>
+						</div>
+						<div class="row">
+							<div class="col-2">
+							</div>
+							<div class="col">
+								<p>commentcommentcommentcommentcommentcommentcommentcomment</p>
+							</div>
+						</div>
+					<hr>
+					</div>
+					<div class="comment">
+						<div class="row">
+							<div class="col-1"><img src="{{ url_for('static', filename='img/user.png') }}"></img></div>
+							<div class="col align-self-center"><a href="#">UserName</a></div>
+						</div>
+						<div class="row">
+							<div class="col-2">
+							</div>
+							<div class="col">
+								<p>commentcommentcommentcommentcommentcommentcommentcomment</p>
+							</div>
+						</div>
+					<hr>
+					</div>					
+					<form>
+						<input type="text" placeholder="Comment"></input>
+						<button type="submit">send</button>
+					</form>
+				</div>
+				<div class="row justify-content-center">
+					<div class="center-block">
+						<button class="moreComments">Show comments</button>
+					</div>
+				</div>
+			</div>
+			
+			{% endfor %}
+			{% else %}
+				
+				<p>No results</p>
+				
+			{% endif %}
+			
+		</div>
+		
+		<hr>
+		
+		<h6>People<h6>
+		
+		{% if usersq %}
+		{% for userq in usersq %}
+		
+		<div class="row follower">
+			<div class="col-1">
+				<img src="{{ url_for('static', filename=userq.picture) }}" class="follow"></img>
+			</div>
+			<div class="col-9 align-self-center">
+				<a href="{{ userq.slug }}">{{ userq.name }}</a>
+			</div>
+			<div class="col-2 align-self-center">
+				<button class="unfollow">Follow</button>
+			</div>
+		</div>
+		
+		{% endfor %}
+		{% else %}
+		
+			<p>No results</p>
+			
+		{% endif %}
+		
+	</div>
+	
+	{% endblock %}
+	
+	<!-- Tracks end -->
